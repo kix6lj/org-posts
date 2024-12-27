@@ -1,0 +1,110 @@
+#+STARTUP: showall indent
+#+STARTUP: hidestars
+#+begin_export html
+---
+title: "APM Chapter 1"
+excerpt: "第一章：CAPM模型"
+header:
+  teaser: assets/images/capm.png
+categories:
+  - "笔记"
+tags:
+  - "Math"
+  - "Finance"
+usemathjax: true
+toc: true
+toc_sticky: true
+---
+#+end_export
+#+OPTIONS: toc:nil title:t num:nil
+
+#+TITLE: APM 第一章
+
+*  总结
+- 组合 $P$ 的超额收益率 $r_p$ 可以划分成3个部分
+  $$
+  r_P = \beta r_B + \alpha_P + \epsilon
+  $$
+  - 其中 $B$ 是基准组合，$\beta$ 定义为 $\frac{\text{Cov}(r_P, r_B)}{\text{Var}(r_B)}$
+  - $\alpha$ 是 $r_P$ 中与 $r_B$ 不相关的部分， $\epsilon$ 为随机波动。
+- CAPM说明，对于有效市场，当 $B$ 为市场组合 $M$ 时，$\mathbb{E}[\alpha_P]$ 总是为 $0$
+  - 有效市场指
+    - 所有投资者都知道超额收益率
+    - 所有投资者都有夏普率 $SR_P=\frac{f_P}{\sigma_P}$ 偏好
+- 根据CAPM，最优投资组合总是按某个比例投资市场组合$M$
+** 有什么问题
+- 超额收益率无法准确预测（至少不能被所有人准确预测）
+- 投资者不会对夏普率有同样的偏好。
+  
+* CAPM 推导
+** 什么是CAPM
+CAPM（capitcal asset pricing model，资本资产定价模型）描述了最优投资组合
+** 技术推导
+*** 定义
+$$
+\newcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\af}{\alpha}
+\newcommand{\bt}{\beta}
+$$
+\begin{alignat*}{2}
+& V \; &&\text{资产之间的协方差} \\
+& \sigma_{A, B} \; &&\text{组合A和B的协方差} \\
+& \vec{h} \; &&\text{投资组合对每个资产的比例}
+\end{alignat*}
+*** 方差与协方差
+- 组合 $P$ 的方差 $\sigma_P=\vec{h}_P^TV\vec{h}_P$
+- 组合 $P$ 和组合 $Q$ 的协方差 $\sigma_{P, Q}=\sigma_{Q, P}=\vec{h}_P^TV\vec{h}_Q$
+*** 特征与特征组合
+- 特征 $\mathbf{\alpha}$ 为一个关于资产的向量，$\mathbf{h}$ 在 $\mathbf{\alpha}$ 上的暴露度为 $\vec{h}^T \vec{\alpha}$
+- $\vec{\alpha}$ 对应唯一的特征组合 $\vec{h}$，满足 $\vec{h}^T\vec{\alpha}=1$（具有单位暴露度），且方差最小
+  - $\vec{h}=\frac{V^{-1}\vec{\af}}{\vec{\af}^TV^{-1}\vec{\af}}$
+  - 方差 $\sigma^2=\frac{1}{\vec{\af}^TV^{-1}\vec{\af}}$
+  - 资产相对 $\vec{h}$ 的 $\vec{\bt}=\frac{V\vec{h}}{\sigma^2}=\frac{\vec{\af}}{\vec{\af}^TV^{-1}\vec{\af}}=\vec{\af}$
+*** 特殊的组合
+**** 组合C
+当特征为 $\vec{e}=\{1, 1, \cdots\}$ 时，特征组合 $C$ 为最小方差的全额投资组合，且资产相对于 $C$ 的 $\bt$ 为 $1$
+#+begin_quote
+全额投资的意思就是 $\sum_{n} \vec{h}_n = 1$.
+#+end_quote
+**** 组合q
+当特征为超额收益率 $\vec{f}$ 是，特征组合q为最大夏普率组合，有
+$$
+\vec{h}_q = \frac{V^{-1}\vec{f}}{\vec{f}^TV^{-1}\vec{f}}
+$$
+
+**** 全额组合Q
+组合q在特征 $\vec{e}$ 上的暴露度为
+\begin{align*}
+e_q & = \vec{h_q}^T \vec{e} = \left(\frac{V^{-1}\vec{f}}{\vec{f}^TV^{-1}\vec{f}}\right)^T \vec{e}\\
+&= \frac{\vec{f}^TV^{-1}\vec{e}}{\sigma_q^2} \\
+&= \frac{\vec{f}^T \sigma_C^2}{\sigma_q^2 } \cdot \frac{V^{-1}\vec{e}}{\sigma_C^2} \\
+&= \frac{\sigma_C^2}{\sigma_q^2} \vec{f}^T\vec{h_C} = f_C \frac{\sigma_C^2}{\sigma_q^2} \\
+\end{align*}
+
+把 $h_q$ 整体乘 $\frac{1}{e_q}$ 就能得到全额投资组合 Q，组合Q的超额收益率 $f_Q=\frac{1}{e_q}$ （这里需要假设 $f_C>0$）。
+
+同样的，组合Q对应的特征为 $e_q \vec{f} = \frac{1}{f_Q} \vec{f}$，从前面的推导可以知道，资产相对与特征组合 $h$ 的 $\vec{\beta}$ 等于特征 $\vec{\alpha}$。于是资产相对于组合 $Q$ 的 $\vec{\beta}=\frac{1}{f_Q} \vec{f}$，即 $\vec{f} = f_Q \vec{\beta}$，即资产的超额收益与其相对 $Q$ 的 $\vec{\beta}$ 成正比。
+
+对于任意组合 $P$，有 $f_P=\vec{f}^T \vec{h}_P = f_Q \vec{\beta}^T \vec{h}_P = f_Q \beta_{\text{P 相对 Q}}$，即组合 $P$ 的 $\alpha_P=0$，也就是相对Q没有主动收益率。
+
+下面说明组合Q就是市场组合M。
+
+*** 全额投资组合的有效前沿
+要求超额收益为 $f_P$ ， 同时全额投资，最小化波动
+\begin{alignat*}{2}
+&\text{minimize} \; &&\vec{h}^TV\vec{h} \\
+&s.t.  \; && \vec{h}^T \vec{e} = 1 \\
+&            && \vec{h}^T \vec{f} = f_P
+\end{alignat*}
+
+求解得到
+$$
+\vec{h}_P=\left(\frac{f_Q-f_P}{f_Q-f_C} \right) \vec{h}_C+\left( \frac{f_P-f_C}{f_Q-f_C} \right) \vec{h_Q}
+$$
+
+组合 $P$ 是组合 $C$ 和组合 $Q$ 按某个比例相加，且 $Q$ 是曲线中夏普率最高的点
+*** CAPM结论
+组合 $Q$ 等于市场组合 $M$
+- 所有人都有夏普率偏好，投资组合就是一定比例的 $Q$ 和无风险资产
+- 市场中净债务的和为0
+- 市场平均的组合就是Q

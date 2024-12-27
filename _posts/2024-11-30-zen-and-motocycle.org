@@ -1,0 +1,49 @@
+#+STARTUP: showall noindent
+#+STARTUP: hidestars
+#+begin_export html
+---
+title: "《禅与摩托车维修艺术》笔记"
+excerpt: "终于读完了被众多科技行业的人推荐的哲学书"
+categories:
+  - "笔记"
+tags:
+  - Philosophy
+  - Leisure
+usemathjax: true
+---
+#+end_export
+
+#+OPTIONS: toc:nil num:nil
+#+TITLE: Zen and Motorcycle
+
+* Takeaways
+- 技术框架是作者思想的体现，关注背后的思想而不是技术的细节
+- 写文档的时候要从想法出发，而不是从头到尾都是定义和方法细节
+
+* 正文
+老是把标题记成了《禅与摩托车维修技术》，所以为什么叫 /the art of motorcycle maintenance/ 呢？维修摩托车靠的是手册、是对摩托车组成细节的精通——明明是不折不扣的技术才对，艺术是音乐、画画、写诗，但不是修摩托车、写代码、装电脑。
+
+事实上很多东西都会被冠上 /the art of/ ，比如Donald Knuth大名鼎鼎的 /The art of computer programming/ 里面通篇都是数学和算法的分析，《孙子兵法》被翻译成 /The art of war/ （战争的艺术）。 /art/ 除了艺术之外还有一个含义
+#+begin_quote
+something that is created with imagination and skill and that is beautiful or that expresses important ideas or feelings
+                          -- Britainnica Dictionary
+#+end_quote
+对于 TAOCP 来说，虽然当中都是技术性的推导和算法，但在Knuth提出来之前，大家对书中的结果并没有一个认识，即使这些数学定理和算法的 *早就在那里了* 。同理，摩托车也是经过设计的产物，各个部分的组合并不是天然就被所有人公认的，而是设计者觉得这样更能够体现他的 *想法* ——造出一辆 *好* 的摩托车 (/motorcycle of quality/)。
+
+长期以来的教育和社会意识认为 *古典（理性）* 和 *浪漫（艺术）* 是分立的，教科书里要么是绝对的理性（数学、物理、化学），要么是绝对的艺术（语文、音乐、美术）（可能有那么一点交叉的就是音乐与数学，不过也只是把人对于不同声音的喜好表达成数学进行分析，或者反过来用数学的规则去设计音乐）。但是这些理性的内容是如何被发现的呢？书中描述了一个进行科学研究的通用流程：
+#+begin_quote
+1. 找到问题
+2. 提出假设
+3. 针对假设设计并进行实验
+4. 分析实验结果，如果实验结果无法证明或证伪假设，则回到第3步重新设计实验
+5. 如果假设被证伪，回到第2步重新提出假设
+#+end_quote
+对于第2步，可能的假设其实是无穷多个的，如果每一个错误的假设都需要通过实验证伪，显然是没有办法通过穷举找到正确的假设（也就是结论）的。
+
+书中提到了 *良质* （quality）这一概念，并认为理性和艺术都是由良质产生。何为良质？当我们认为一个东西有良质（of quality）时，是根据什么样的定义所下的结论？书中对此并没有明确的定义，并且说
+#+begin_quote
+良质是一种思想和陈述的特质，我们不能经由思考的方式了解它，因为下定义是一种严格而规范的思考过程，所以良质无法被定义
+#+end_quote
+其实就是良质是的思考过程的原因，所以无法通过思考过程来定义良质。在书的末尾，作者在希腊神话中找到了良质的希腊语对应——卓越（aretê），“对自我的责任感”。
+
+To be continued

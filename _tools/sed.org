@@ -1,0 +1,20 @@
+#+STARTUP: showall noindent
+#+STARTUP: hidestars
+#+begin_export html
+---
+title: "sed 手册"
+excerpt: "sed 备忘录"
+categories:
+  - "工具"
+  - "手册"
+tags:
+  - linux
+usemathjax: true
+toc: true
+toc_sticky: true
+---
+#+end_export
+#+OPTIONS: toc:nil title:t num:nil
+
+* sed有什么用
+(a stream edtior) 被用来对一个字符串流进行编辑，本人对字符串流的理解就是类似于DFA接收并处理一个一个字符的模式，相比之下 [[jekyll-link:awk.org][awk]] 是一行一行地处理文本，在处理的过程中会保留上下文的信息。

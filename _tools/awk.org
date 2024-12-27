@@ -1,0 +1,16 @@
+#+STARTUP: showall noindent
+#+STARTUP: hidestars
+#+begin_export html
+---
+title: "awk 手册"
+excerpt: "awk 备忘录"
+categories:
+  - "工具"
+  - "手册"
+tags:
+  - linux
+usemathjax: true
+toc: true
+toc_sticky: true
+---
+#+end_export
