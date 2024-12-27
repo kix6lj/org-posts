@@ -1,0 +1,3 @@
+#+STARTUP: showall noindent
+#+STARTUP: hidestars
+#+OPTIONS: toc:nil title:t num:nil
